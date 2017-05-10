@@ -3,16 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class parameter : MonoBehaviour {
-	public static int hp = 100;
-	public static int mp = 50;
+[System.Serializable]
+public class parameter{
+	public int MaxHp = 100;
+	public int MaxMp = 50;
 	public Text gage;
-	public static int sp = 15;
+	public static int hp;
+	public static int mp;
+	//public static int sp = 15;
+
 
 
 	// Use this for initialization
 	void Start () {
-		
+		hp = MaxHp;
+		mp = MaxMp;
 	}
 	
 	// Update is called once per frame
