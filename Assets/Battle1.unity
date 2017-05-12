@@ -1285,8 +1285,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1, y: 0}
-  m_SizeDelta: {x: 369, y: 30}
+  m_AnchoredPosition: {x: -4, y: 4}
+  m_SizeDelta: {x: 378, y: 38}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1418285238
 MonoBehaviour:
@@ -1484,12 +1484,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   param:
     name: "\u30B9\u30E9\u30A4\u30E0"
-    MaxHp: 50
+    MaxHp: 100
     MaxMp: 0
     gage: {fileID: 0}
-    hp: 50
+    hp: 100
     mp: 0
     attack: 15
+    defence: 5
 --- !u!1 &1640719210
 GameObject:
   m_ObjectHideFlags: 0
@@ -1520,6 +1521,7 @@ MonoBehaviour:
   inWhiteBox: {fileID: 0}
   player: {fileID: 1869445621}
   enemy: {fileID: 1506118606}
+  Odamage: 0
 --- !u!4 &1640719212
 Transform:
   m_ObjectHideFlags: 0
@@ -1568,6 +1570,7 @@ MonoBehaviour:
     hp: 100
     mp: 50
     attack: 30
+    defence: 10
 --- !u!4 &1869445622
 Transform:
   m_ObjectHideFlags: 0

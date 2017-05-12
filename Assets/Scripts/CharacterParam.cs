@@ -10,9 +10,10 @@ public class CharacterParam{
 	public int MaxMp;
 	public Text gage;
 	public int hp;
-	public int mp;
+	public  int mp;
 	public int attack;
-	//public static int sp = 15;
+	public int defence;
+	//public static int speed;
 
 	public CharacterParam(){
 
