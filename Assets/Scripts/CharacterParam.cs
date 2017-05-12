@@ -4,20 +4,24 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [System.Serializable]
-public class parameter{
-	public int MaxHp = 100;
-	public int MaxMp = 50;
+public class CharacterParam{
+	public string name;
+	public int MaxHp;
+	public int MaxMp;
 	public Text gage;
-	public static int hp;
-	public static int mp;
+	public int hp;
+	public int mp;
+	public int attack;
 	//public static int sp = 15;
 
+	public CharacterParam(){
 
+	}
 
 	// Use this for initialization
 	void Start () {
-		hp = MaxHp;
-		mp = MaxMp;
+		//hp = MaxHp;
+		//mp = MaxMp;
 	}
 	
 	// Update is called once per frame
