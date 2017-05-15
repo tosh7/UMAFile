@@ -6,49 +6,45 @@ using UnityEngine.UI;
 public class BattleManager : MonoBehaviour {
 
 	//int turn = 0; //0:プレイヤー、1:エネミー
-	
+
 	public Text inWhiteBox;
 
 	public PlayerScript player;
 	public EnemyScript enemy;
-	public int Odamage;
+	public int damage;
 
 	// Use this for initialization
 	void Start () {
-		//inWhiteBox.text = "やせいのスライムが現れた";
+		inWhiteBox.text = "やせいのスライムが現れた";
 		Debug.Log( "やせいのスライムが現れた\nコマンドを入力してください");
 	}
 		
 
 	public void AttackButton(){
-		Odamage = player.param.attack - enemy.param.defence;
-		enemy.Attack (Odamage);
+		damage = player.param.attack - enemy.param.defence;
+		enemy.Attack (damage);
 		EnemyAttack ();
-		if (enemy.param.hp <= 0) {
-			Debug.Log (enemy.param.name + "を倒した");
-		}
+
 	}
 
 	public void MagicButton(){
-		Odamage = player.param.attack - enemy.param.defence;
-		Odamage = Odamage * 2;
-		enemy.Magic (Odamage);
+		damage = player.param.attack - enemy.param.defence;
+		damage = damage * 2;
+		enemy.Magic (damage);
 		EnemyAttack ();
-		if (enemy.param.hp <= 0) {
-			Debug.Log (enemy.param.name + "を倒した");
-		}
+
 	}
 
 	public void ItemButton(){
-		Odamage = 15;
-		player.Item (Odamage);
+		damage = 15;
+		player.Item (damage);
 		EnemyAttack ();
 	}
 
 	public void EnemyAttack(){
 		if (enemy.param.hp > 0) {
-			Odamage = enemy.param.attack - player.param.defence;
-			player.Damage (Odamage, enemy.param.name);
+			damage = enemy.param.attack - player.param.defence;
+			player.Damage (damage, enemy.param.name);
 		}
 	}
 		

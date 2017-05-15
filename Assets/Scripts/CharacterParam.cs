@@ -19,15 +19,5 @@ public class CharacterParam{
 
 	}
 
-	// Use this for initialization
-	void Start () {
-		//hp = MaxHp;
-		//mp = MaxMp;
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		gage.text = "とし\nHP:" + hp.ToString() + "\nMP:" + mp.ToString()
-		+ "\nLv.23";
-	}
+
 }

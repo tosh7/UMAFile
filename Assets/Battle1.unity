@@ -399,7 +399,6 @@ GameObject:
   - component: {fileID: 151123208}
   - component: {fileID: 151123210}
   - component: {fileID: 151123209}
-  - component: {fileID: 151123211}
   m_Layer: 5
   m_Name: Parameter
   m_TagString: Untagged
@@ -464,17 +463,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 151123207}
---- !u!114 &151123211
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 151123207}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d43c1c7d3679a497483f4bb1ea5e4587, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &372292970
 GameObject:
   m_ObjectHideFlags: 0
@@ -655,6 +643,47 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 513388970}
+--- !u!1 &601468335
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 601468337}
+  - component: {fileID: 601468336}
+  m_Layer: 0
+  m_Name: ParameterController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &601468336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 601468335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea7c56520d8cb48b3bbf4ed0b8e57f9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gage: {fileID: 151123209}
+--- !u!4 &601468337
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 601468335}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 93, y: 281, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &631472395
 GameObject:
   m_ObjectHideFlags: 0
@@ -1586,6 +1615,7 @@ MonoBehaviour:
     mp: 0
     attack: 15
     defence: 5
+  inWhiteBox: {fileID: 1418285238}
 --- !u!1 &1640719210
 GameObject:
   m_ObjectHideFlags: 0
@@ -1613,10 +1643,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea4bb6b31719340b8ba61db7dc3f0872, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inWhiteBox: {fileID: 0}
+  inWhiteBox: {fileID: 1418285238}
   player: {fileID: 1869445621}
   enemy: {fileID: 1506118606}
-  Odamage: 0
+  damage: 0
 --- !u!4 &1640719212
 Transform:
   m_ObjectHideFlags: 0
@@ -1666,6 +1696,9 @@ MonoBehaviour:
     mp: 50
     attack: 30
     defence: 10
+  pC: {fileID: 0}
+  pcObj: {fileID: 601468335}
+  inWhiteBox: {fileID: 1418285238}
 --- !u!4 &1869445622
 Transform:
   m_ObjectHideFlags: 0
