@@ -7,7 +7,7 @@ public class BattleManager : MonoBehaviour {
 
 	//int turn = 0; //0:プレイヤー、1:エネミー
 
-	public Text inWhiteBox;
+	//public Text inWhiteBox;
 
 	public PlayerScript player;
 	public EnemyScript enemy;
@@ -15,29 +15,72 @@ public class BattleManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		inWhiteBox.text = "やせいのスライムが現れた";
+		//inWhiteBox.text = "やせいのスライムが現れた";
+		ParameterContoroller.Instance.InBoxUpdate ("やせいのスライムが現れた");
 		Debug.Log( "やせいのスライムが現れた\nコマンドを入力してください");
+
 	}
 		
 
 	public void AttackButton(){
+		
+		StartCoroutine ("AttackButtonPush");
+	}
+
+	IEnumerator AttackButtonPush(){
 		damage = player.param.attack - enemy.param.defence;
 		enemy.Attack (damage);
-		EnemyAttack ();
+
+		yield return new WaitForSeconds(1.0f);
+
+		if (enemy.param.hp <= 0) {
+			Debug.Log (enemy.param.name + "を倒した");
+			//inWhiteBox.text = param.name + "を倒した";
+			ParameterContoroller.Instance.InBoxUpdate (enemy.param.name + "を倒した");
+		} else {
+			EnemyAttack ();
+		}
 
 	}
 
 	public void MagicButton(){
+		StartCoroutine ("MagicButtonPush");
+	}
+
+	IEnumerator MagicButtonPush(){
 		damage = player.param.attack - enemy.param.defence;
 		damage = damage * 2;
 		enemy.Magic (damage);
-		EnemyAttack ();
+		player.param.mp -= 10;
+		ParameterContoroller.Instance.ParamUpdate (player.param.name, player.param.hp, player.param.mp);
 
+		yield return new WaitForSeconds(1.0f);
+
+		if (enemy.param.hp <= 0) {
+			Debug.Log (enemy.param.name + "を倒した");
+			//inWhiteBox.text = param.name + "を倒した";
+			ParameterContoroller.Instance.InBoxUpdate (enemy.param.name + "を倒した");
+		} else {
+			EnemyAttack ();
+		}
 	}
 
+
 	public void ItemButton(){
+		StartCoroutine ("ItemButtonPush");
+	}
+
+	IEnumerator ItemButtonPush(){
 		damage = 15;
-		player.Item (damage);
+		player.Item1 ();
+		yield return new WaitForSeconds (2.0f);
+
+		player.Item2 (damage);
+		yield return new WaitForSeconds (2.0f);
+
+		player.Item3 ();
+		yield return new WaitForSeconds (2.0f);
+
 		EnemyAttack ();
 	}
 
