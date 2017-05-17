@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class BattleManager : MonoBehaviour {
 
@@ -37,6 +38,8 @@ public class BattleManager : MonoBehaviour {
 			Debug.Log (enemy.param.name + "を倒した");
 			//inWhiteBox.text = param.name + "を倒した";
 			ParameterContoroller.Instance.InBoxUpdate (enemy.param.name + "を倒した");
+			yield return new WaitForSeconds (2.0f);
+			SceneManager.LoadScene ("dungeon1");
 		} else {
 			EnemyAttack ();
 		}
@@ -60,6 +63,8 @@ public class BattleManager : MonoBehaviour {
 			Debug.Log (enemy.param.name + "を倒した");
 			//inWhiteBox.text = param.name + "を倒した";
 			ParameterContoroller.Instance.InBoxUpdate (enemy.param.name + "を倒した");
+			yield return new WaitForSeconds (2.0f);
+			SceneManager.LoadScene ("dungeon1");
 		} else {
 			EnemyAttack ();
 		}
