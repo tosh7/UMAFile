@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class BattleManager : MonoBehaviour {
+public class BattleManager2 : MonoBehaviour {
 
 	//int turn = 0; //0:プレイヤー、1:エネミー
 
@@ -23,10 +23,10 @@ public class BattleManager : MonoBehaviour {
 		Debug.Log( "やせいのスライムが現れた\nコマンドを入力してください");
 
 	}
-		
+
 
 	public void AttackButton(){
-		
+
 		StartCoroutine ("AttackButtonPush");
 	}
 
@@ -42,7 +42,7 @@ public class BattleManager : MonoBehaviour {
 			//inWhiteBox.text = param.name + "を倒した";
 			ParameterContoroller.Instance.InBoxUpdate (enemy.param.name + "を倒した");
 			yield return new WaitForSeconds (2.0f);
-			SceneManager.UnloadSceneAsync ("Battle1");
+			SceneManager.UnloadSceneAsync ("Battle2");
 		} else {
 			EnemyAttack ();
 		}
@@ -74,7 +74,7 @@ public class BattleManager : MonoBehaviour {
 			//inWhiteBox.text = param.name + "を倒した";
 			ParameterContoroller.Instance.InBoxUpdate (enemy.param.name + "を倒した");
 			yield return new WaitForSeconds (2.0f);
-			SceneManager.UnloadSceneAsync ("Battle1");
+			SceneManager.UnloadSceneAsync ("Battle2");
 		} else {
 			EnemyAttack ();
 		}
@@ -104,8 +104,9 @@ public class BattleManager : MonoBehaviour {
 	}
 
 	IEnumerator FleeButtonPush(){
+		ParameterContoroller.Instance.InBoxUpdate ("逃げられない");
 		yield return new WaitForSeconds (2.0f);
-		SceneManager.UnloadSceneAsync ("Battle1");
+		EnemyAttack ();
 	}
 
 	public void EnemyAttack(){
@@ -116,8 +117,7 @@ public class BattleManager : MonoBehaviour {
 				SceneManager.LoadScene ("Game Over");
 			}
 		}
-			
 	}
-		
+
 
 }

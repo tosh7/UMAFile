@@ -6,9 +6,14 @@ using UnityEngine.SceneManagement;
 
 public class PlayerMoveScript : MonoBehaviour {
 
+//	public BattleManager bM;
+//	public GameObject bMObj;
+
 	// Use this for initialization
 	void Start () {
 		PlayerPrefs.DeleteAll ();
+
+//		bM = bMObj.GetComponent<BattleManager>();
 	}
 	
 	// Update is called once per frame
@@ -30,6 +35,11 @@ public class PlayerMoveScript : MonoBehaviour {
 		if (other.tag == "Enemy") {
 			Destroy (other.gameObject); 
 			SceneManager.LoadScene ("Battle1", LoadSceneMode.Additive);
+		} else if (other.tag == "Clear") {
+			SceneManager.LoadScene ("Ending");
+		} else if (other.tag == "Boss") {
+			Destroy (other.gameObject); 
+			SceneManager.LoadScene ("Battle2", LoadSceneMode.Additive);
 		}
 
 
