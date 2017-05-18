@@ -13,8 +13,8 @@ public class PlayerScript : MonoBehaviour {
 	//float timer =  0.0f;
 	private int nowHp;
 	private int nowMp;
-	private string key = "now";
-
+	private string key1 = "nowhp";
+	private string key2 = "nowmp";
 
 
 	void Start(){
@@ -22,9 +22,11 @@ public class PlayerScript : MonoBehaviour {
 
 		//pC.ParamUpdate (param.name, param.hp, param.mp);
 		//PlayerPrefs.DeleteAll();
+	
+		nowHp = PlayerPrefs.GetInt (key1, param.maxHp); 
+		nowMp = PlayerPrefs.GetInt (key2, param.maxMp);
 
-		nowHp = PlayerPrefs.GetInt (key, 100); 
-		nowMp = PlayerPrefs.GetInt (key, 50);
+		Debug.Log ("Battle Start"+nowHp.ToString());
 
 		param.hp = nowHp;
 		param.mp = nowMp;
@@ -77,8 +79,12 @@ public class PlayerScript : MonoBehaviour {
 	}
 
 	public void save(){
-		PlayerPrefs.SetInt (key, nowHp);
-		PlayerPrefs.SetInt (key, nowMp);
+		Debug.Log ("save!"+param.hp);
+		PlayerPrefs.SetInt (key1, param.hp);
+		PlayerPrefs.SetInt (key2, param.mp);
+		PlayerPrefs.Save ();
 	}
+
+
 		
 }

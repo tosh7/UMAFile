@@ -61,6 +61,7 @@ public class BattleManager : MonoBehaviour {
 		yield return new WaitForSeconds(1.0f);
 
 		if (enemy.param.hp <= 0) {
+			player.save ();
 			Debug.Log (enemy.param.name + "を倒した");
 			//inWhiteBox.text = param.name + "を倒した";
 			ParameterContoroller.Instance.InBoxUpdate (enemy.param.name + "を倒した");
@@ -88,6 +89,15 @@ public class BattleManager : MonoBehaviour {
 		yield return new WaitForSeconds (2.0f);
 
 		EnemyAttack ();
+	}
+
+	public void FleeButton(){
+		StartCoroutine ("FleeButtonPush");
+	}
+
+	IEnumerator FleeButtonPush(){
+		yield return new WaitForSeconds (2.0f);
+		SceneManager.UnloadSceneAsync ("Battle1");
 	}
 
 	public void EnemyAttack(){

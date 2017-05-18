@@ -8,7 +8,7 @@ public class PlayerMoveScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+		PlayerPrefs.DeleteAll ();
 	}
 	
 	// Update is called once per frame
@@ -26,8 +26,13 @@ public class PlayerMoveScript : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D other){
-		Destroy (other.gameObject); 
-		SceneManager.LoadScene ("Battle1", LoadSceneMode.Additive);
+
+		if (other.tag == "Enemy") {
+			Destroy (other.gameObject); 
+			SceneManager.LoadScene ("Battle1", LoadSceneMode.Additive);
+		}
+
+
 	}
 		
 }
