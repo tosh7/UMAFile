@@ -19,7 +19,7 @@ public class BattleManager2 : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		//inWhiteBox.text = "やせいのスライムが現れた";
-		ParameterContoroller.Instance.InBoxUpdate ("やせいの"+enemy.param.name+ "が現れた");
+		ParameterContoroller.Instance.InBoxUpdate (enemy.param.name+ "が現れた");
 		Debug.Log( "やせいのスライムが現れた\nコマンドを入力してください");
 
 	}

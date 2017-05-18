@@ -34,6 +34,7 @@ public class PlayerMoveScript : MonoBehaviour {
 
 		if (other.tag == "Enemy") {
 			Destroy (other.gameObject); 
+//			_StopBgm ();
 			SceneManager.LoadScene ("Battle1", LoadSceneMode.Additive);
 		} else if (other.tag == "Clear") {
 			SceneManager.LoadScene ("Ending");

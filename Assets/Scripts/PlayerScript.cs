@@ -26,7 +26,7 @@ public class PlayerScript : MonoBehaviour {
 	
 		nowHp = PlayerPrefs.GetInt (key1, param.maxHp); 
 		nowMp = PlayerPrefs.GetInt (key2, param.maxMp);
-		nowItem = PlayerPrefs.GetInt (key3, 5);
+		nowItem = PlayerPrefs.GetInt (key3, 10);
 
 //		Debug.Log ("Battle Start"+nowHp.ToString());
 
@@ -69,6 +69,7 @@ public class PlayerScript : MonoBehaviour {
 	public void Item2(int cure){
 		if (item > 0) {
 			param.hp += cure;
+			param.mp += 10;
 
 			ParameterContoroller.Instance.InBoxUpdate (param.name + "は" + cure + "だけHPを回復した");
 			Debug.Log (param.name + "は" + cure + "だけHPを回復した");
