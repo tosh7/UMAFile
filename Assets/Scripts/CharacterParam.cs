@@ -6,8 +6,8 @@ using UnityEngine.UI;
 [System.Serializable]
 public class CharacterParam{
 	public string name;
-	public int MaxHp;
-	public int MaxMp;
+	public int maxHp;
+	public int maxMp;
 	public Text gage;
 	public int hp;
 	public  int mp;

@@ -35,11 +35,12 @@ public class BattleManager : MonoBehaviour {
 		yield return new WaitForSeconds(1.0f);
 
 		if (enemy.param.hp <= 0) {
+			player.save ();
 			Debug.Log (enemy.param.name + "を倒した");
 			//inWhiteBox.text = param.name + "を倒した";
 			ParameterContoroller.Instance.InBoxUpdate (enemy.param.name + "を倒した");
 			yield return new WaitForSeconds (2.0f);
-			SceneManager.LoadScene ("dungeon1");
+			SceneManager.UnloadSceneAsync ("Battle1");
 		} else {
 			EnemyAttack ();
 		}
@@ -64,7 +65,7 @@ public class BattleManager : MonoBehaviour {
 			//inWhiteBox.text = param.name + "を倒した";
 			ParameterContoroller.Instance.InBoxUpdate (enemy.param.name + "を倒した");
 			yield return new WaitForSeconds (2.0f);
-			SceneManager.LoadScene ("dungeon1");
+			SceneManager.UnloadSceneAsync ("Battle1");
 		} else {
 			EnemyAttack ();
 		}
